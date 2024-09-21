@@ -29,6 +29,45 @@
 
 .edit-panel {
   padding: 1rem;
+  
+}
+
+.panel-section-container {
+  cursor: pointer;
+  border: 3px solid black;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 15px;
+}
+
+.panel-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.inputs-and-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs-and-label input {
+  padding: .5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.expandBtn {
+  
+  border: none;
+  background-color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 .main {
