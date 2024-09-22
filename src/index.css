@@ -50,6 +50,8 @@
 .inputs-and-label {
   display: flex;
   flex-direction: column;
+
+  
 }
 
 .inputs-and-label input {
@@ -66,8 +68,41 @@
   cursor: pointer;
 }
 
+
+
 .hidden {
-  display: none;
+
+  max-height: 0;
+  overflow: hidden;
+  
+}
+
+.visible {
+  animation: expand .2s ease-out;
+}
+
+@keyframes example {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes expand {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+
+  }
 }
 
 .main {

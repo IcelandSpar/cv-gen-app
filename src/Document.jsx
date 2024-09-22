@@ -1,11 +1,11 @@
 
-export function Document() {
+export function Document({userName, occupation}) {
     return (
         <div className='document-file'>
             <div className='document-main'>
                 <section className="doc-header-info">
-                    <h3 className='name'>John Doe</h3>
-                    <h5 className="occupation">Front-End Developer</h5>
+                    <h3 className='name'>{userName}</h3>
+                    <h5 className="occupation">{occupation}</h5>
                     <div className='document-contact'>
                         <p>123-456-7891</p>
                         <p>myemail@email.com</p>
