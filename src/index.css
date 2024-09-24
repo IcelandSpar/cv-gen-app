@@ -28,8 +28,10 @@
 }
 
 .edit-panel {
+  position: relative;
   padding: 1rem;
-  
+  overflow-y: scroll;
+  max-height: 1000px;
 }
 
 .panel-section-container {
@@ -66,6 +68,10 @@
   font-size: 1rem;
   padding: .5rem;
   height: 70px;
+}
+
+.position-input {
+  width: 100%;
 }
 
 .expandBtn {
@@ -179,8 +185,28 @@
 
 h4 {
   border-bottom: 1px solid black;
+  font-size: 1.7rem;
 }
 
 .document-aside h4 {
   border-bottom: 1px solid whitesmoke;
+}
+
+.exp-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.exp-position {
+  font-size: 1.4rem;
+}
+
+.exp-company {
+  font-size: 1rem;
+  color: rgb(30, 141, 177);
+}
+
+.exp-title-date-container {
+  display: flex;
+  justify-content: space-between;
 }

@@ -51,3 +51,48 @@ export function SummarySection({title, summary, onChange}) {
         </section>
     )
 }
+
+export function ExperienceSection({title, expBtnHandle}) {
+    const [expand, setExpand] = useState('+');
+
+    const expandHandler = () => expand == '+' ? setExpand('-') : setExpand('+');
+
+
+
+    return (
+        <section className='panel-section-container'>
+            <div  onClick={expandHandler} className='panel-section'>
+                <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                <button className='expandBtn' onClick={expandHandler}>{expand}</button>
+            </div>
+            <div className={expand == '+' ? 'hidden' : 'visible'}>
+                <div className="inputs-and-label">
+                    <label>
+                        Position Title: 
+                        <input type="text" className='position-input'/>
+                    </label>
+                    
+                </div>
+                <div className="inputs-and-label">
+                    <label>Company: </label>
+                    <input type="text" className='company-input'/>
+                </div>
+
+                <div className="inputs-and-label">
+                    <label>Date Start: </label>
+                    <input type="date" className='date-start-input'/>
+                </div>
+                <div className="inputs-and-label">
+                    <label>Date End: </label>
+                    <input type="date" className='date-end-input'/>
+                </div>
+                <div className="inputs-and-label">
+                    <label>Responsibilities: </label>
+                    <input type="text" /><button>Add Responsibility</button>
+                </div>
+                <button onClick={expBtnHandle}>Add Work</button>
+                
+            </div>
+        </section>
+    )
+}

@@ -1,5 +1,5 @@
 
-export function Document({userName, occupation, phone, email, linkedIn, location, summary}) {
+export function Document({userName, occupation, phone, email, linkedIn, location, summary, exp}) {
     return (
         <div className='document-file'>
             <div className='document-main'>
@@ -16,11 +16,25 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                 <h4>Summary</h4>
                 <p className="summary">{summary}</p>
                 <h4>Experience</h4>
-                <ul>
+                <div>
+                    <ul className="exp-list">{
+                        exp.map((item, i) => {
+                            return (
+                            <li key={i}>
+                                <div className="exp-title-date-container">
+                                    <h5 className="exp-position">{item.position}</h5>
+                                    <div>{item.dateStart} - {item.dateEnd}</div>
+                                </div>
+                                <h6 className='exp-company'>{item.company}</h6>
+
+                            </li>
+                            )
+
+                        })}
+                    </ul>
                     <li></li>
                     <li></li>
-                    <li></li>
-                </ul>
+                </div>
                 <h4>Education</h4>
                 <ul>
                     <li></li>

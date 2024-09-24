@@ -16,6 +16,8 @@ function App() {
   const [location, setLocation] = useState("Location, USA");
   const [summary, setSummary] = useState('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur fuga dolorum reprehenderit et deleniti quia molestias alias aliquid omnis distinctio. Impedit repellendus obcaecati temporibus dolore. Et reprehenderit sit expedita dolores.')
 
+  const [exp, setExp] = useState([]);
+
   const handleChange = (e) => {
     if(e.target.id == 'name') {
       setName(e.target.value);
@@ -35,12 +37,25 @@ function App() {
     
   };
 
+  const expBtnHandle = (e) => {
+    e.preventDefault()
+    
+    setExp([...exp, {
+      position: document.querySelector('.position-input').value,
+      company: document.querySelector('.company-input').value,
+      dateStart: document.querySelector('.date-start-input').value,
+      dateEnd: document.querySelector('.date-end-input').value,
+    }])
+    
+    
+}
+
   return (
     <>
       <Header />
       <div className="panel-and-main">
-        <EditPanel userName={name} onChange={handleChange} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary}/>
-        <MainContent userName={name} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary}/>
+        <EditPanel userName={name} onChange={handleChange} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} expBtnHandle={expBtnHandle}/>
+        <MainContent userName={name} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} exp={exp}/>
       </div>
     </>
   );
