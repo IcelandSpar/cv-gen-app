@@ -1,5 +1,5 @@
 
-export function Document({userName, occupation}) {
+export function Document({userName, occupation, phone, email, linkedIn, location, summary}) {
     return (
         <div className='document-file'>
             <div className='document-main'>
@@ -7,14 +7,14 @@ export function Document({userName, occupation}) {
                     <h3 className='name'>{userName}</h3>
                     <h5 className="occupation">{occupation}</h5>
                     <div className='document-contact'>
-                        <p>123-456-7891</p>
-                        <p>myemail@email.com</p>
-                        <p>linkedin.com</p>
+                        <p>{phone}</p>
+                        <p>{email}</p>
+                        <p>{linkedIn}</p>
                     </div>
-                    <p>Location, USA</p>
+                    <p>{location}</p>
                 </section>
                 <h4>Summary</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur fuga dolorum reprehenderit et deleniti quia molestias alias aliquid omnis distinctio. Impedit repellendus obcaecati temporibus dolore. Et reprehenderit sit expedita dolores.</p>
+                <p className="summary">{summary}</p>
                 <h4>Experience</h4>
                 <ul>
                     <li></li>

@@ -60,6 +60,14 @@
   margin-bottom: 1rem;
 }
 
+.resize-input {
+  resize: vertical;
+  
+  font-size: 1rem;
+  padding: .5rem;
+  height: 70px;
+}
+
 .expandBtn {
   
   border: none;
@@ -68,6 +76,9 @@
   cursor: pointer;
 }
 
+.selected-title {
+  color: gray;
+}
 
 
 .hidden {
@@ -129,6 +140,9 @@
 
 .document-main {
   padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .document-aside {
