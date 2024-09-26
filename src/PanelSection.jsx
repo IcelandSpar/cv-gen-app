@@ -110,7 +110,7 @@ export function HobbySection({title, addHobbyHandle, hobbies, setHobbies}) {
             <div className={expand == '+' ? 'hidden' : 'visible'}>
                 <HobbiesInput addHobbyHandle={addHobbyHandle}/>
                 <ul className='hobbies-ul'>
-                {hobbies.map((hobby, i) => <EditDeleteHobbies key ={i} keyNum={i} hobbyValue={hobby} setHobbies={setHobbies}/>)}
+                {hobbies.map((hobby, i) => <EditDeleteHobbies key ={i} keyNum={i} hobbyValue={hobby} setHobbies={setHobbies} hobbies={hobbies}/>)}
                 </ul>
             </div>
         </section>
