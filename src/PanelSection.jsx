@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { ContactInfoInput, InputField, SummaryInput } from './InputField';
+import { ContactInfoInput, InputField, SummaryInput, HobbiesInput } from './InputField';
+import { ResponsibilitiesSection } from './ResponsibilitiesSection';
+import { EditDeleteHobbies } from './EditDeleteHobbies';
 
 export function PanelSection({title, input, inputDefault, onChange, occupation}) {
     const [expand, setExpand] = useState('+');
@@ -86,12 +88,30 @@ export function ExperienceSection({title, expBtnHandle}) {
                     <label>Date End: </label>
                     <input type="date" className='date-end-input'/>
                 </div>
-                <div className="inputs-and-label">
-                    <label>Responsibilities: </label>
-                    <input type="text" /><button>Add Responsibility</button>
-                </div>
+                <ResponsibilitiesSection/>
                 <button onClick={expBtnHandle}>Add Work</button>
                 
+            </div>
+        </section>
+    )
+}
+
+export function HobbySection({title, addHobbyHandle, hobbies, setHobbies}) {
+    const [expand, setExpand] = useState('+');
+
+    const expandHandler = () => expand == '+' ? setExpand('-') : setExpand('+');
+
+    return (
+        <section className='panel-section-container'>
+            <div  onClick={expandHandler} className='panel-section'>
+                <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                <button className='expandBtn' onClick={expandHandler}>{expand}</button>
+            </div>
+            <div className={expand == '+' ? 'hidden' : 'visible'}>
+                <HobbiesInput addHobbyHandle={addHobbyHandle}/>
+                <ul className='hobbies-ul'>
+                {hobbies.map((hobby, i) => <EditDeleteHobbies key ={i} keyNum={i} hobbyValue={hobby} setHobbies={setHobbies}/>)}
+                </ul>
             </div>
         </section>
     )

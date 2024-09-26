@@ -47,3 +47,17 @@ export function SummaryInput({summary, onChange}) {
     </div> 
     )
 }
+
+export function HobbiesInput({addHobbyHandle}) {
+    
+    return (
+        <div>
+        <div className='inputs-and-label'>
+            <label htmlFor="hobbies">Hobby: </label>
+            <input type='text' id='hobbies' className='hobbies-input'/>
+            <button onClick={addHobbyHandle}>Add Hobby</button>
+            
+        </div>
+        </div>
+    )
+}

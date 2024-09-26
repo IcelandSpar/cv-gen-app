@@ -1,5 +1,5 @@
 
-export function Document({userName, occupation, phone, email, linkedIn, location, summary, exp}) {
+export function Document({userName, occupation, phone, email, linkedIn, location, summary, exp, hobbies}) {
     return (
         <div className='document-file'>
             <div className='document-main'>
@@ -17,6 +17,7 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                 <p className="summary">{summary}</p>
                 <h4>Experience</h4>
                 <div>
+                    
                     <ul className="exp-list">{
                         exp.map((item, i) => {
                             return (
@@ -26,7 +27,9 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                                     <div>{item.dateStart} - {item.dateEnd}</div>
                                 </div>
                                 <h6 className='exp-company'>{item.company}</h6>
-
+                                <ul>
+                                    {item.respons.map((resp, j) => <li key={i + j}>{resp.value}</li>)}
+                                </ul>
                             </li>
                             )
 
@@ -54,10 +57,8 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                 </ul>
                 <h4>Hobbies</h4>
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    {hobbies.map((hobby, i) => <li key={hobby + i}>{hobby}</li>)}
+                    {document.querySelector('.hobbies-input') == null ? null : document.querySelector('.hobbies-input').value = ''}
                 </ul>
             </div>
         </div>

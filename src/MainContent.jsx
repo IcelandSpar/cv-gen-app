@@ -1,11 +1,11 @@
 import { Document } from './Document.jsx'
 
 
-export function MainContent({userName, occupation, phone, email, linkedIn, location, summary, exp}) {
+export function MainContent({userName, occupation, phone, email, linkedIn, location, summary, exp, hobbies}) {
     return (
         <main className='main'>
             <section className='document'>
-                <Document userName={userName} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} exp={exp}/>
+                <Document userName={userName} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} exp={exp} hobbies={hobbies}/>
             </section>
         </main>
     )

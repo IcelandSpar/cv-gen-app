@@ -16,7 +16,13 @@ function App() {
   const [location, setLocation] = useState("Location, USA");
   const [summary, setSummary] = useState('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur fuga dolorum reprehenderit et deleniti quia molestias alias aliquid omnis distinctio. Impedit repellendus obcaecati temporibus dolore. Et reprehenderit sit expedita dolores.')
 
+  const [hobbies, setHobbies] = useState([]);
+
   const [exp, setExp] = useState([]);
+
+
+
+  
 
   const handleChange = (e) => {
     if(e.target.id == 'name') {
@@ -40,22 +46,38 @@ function App() {
   const expBtnHandle = (e) => {
     e.preventDefault()
     
+
+    
     setExp([...exp, {
+      
       position: document.querySelector('.position-input').value,
       company: document.querySelector('.company-input').value,
       dateStart: document.querySelector('.date-start-input').value,
       dateEnd: document.querySelector('.date-end-input').value,
+      respons: Array.from(document.querySelectorAll('.respons-input'))
     }])
     
     
 }
 
+const addHobbyHandle = (e) => {
+  const hobbyInput = document.getElementById('hobbies');
+  
+  e.preventDefault();
+  setHobbies(prev => [...prev, hobbyInput.value]);
+  
+  hobbyInput.focus();
+  
+}
+
+
+
   return (
     <>
       <Header />
       <div className="panel-and-main">
-        <EditPanel userName={name} onChange={handleChange} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} expBtnHandle={expBtnHandle}/>
-        <MainContent userName={name} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} exp={exp}/>
+        <EditPanel userName={name} onChange={handleChange} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} expBtnHandle={expBtnHandle} addHobbyHandle={addHobbyHandle} hobbies={hobbies} setHobbies={setHobbies}/>
+        <MainContent userName={name} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} exp={exp} hobbies={hobbies}/>
       </div>
     </>
   );
