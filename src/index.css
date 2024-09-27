@@ -5,7 +5,7 @@
 }
 
 .page-header {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,9 +16,23 @@
 }
 
 .header-btn {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   padding: 1em 2em;
   border-radius: 15px;
+  cursor: pointer;
+}
+
+.background-select-label-input {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem
+}
+
+#background-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .5rem;
   cursor: pointer;
 }
 
@@ -31,12 +45,12 @@
   position: relative;
   padding: 1rem;
   overflow-y: scroll;
-  max-height: 1200px;
+  max-height: 1300px;
   scrollbar-width: thin;
 }
 
 .panel-section-container {
-  cursor: pointer;
+  
   border: 3px solid black;
   padding: 1rem;
   margin-top: 1rem;
@@ -45,15 +59,55 @@
 
 .panel-section {
   display: flex;
+  
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
   
+}
+
+.panel-section:hover img {
+ animation: 1s subtleTilt ease-out .5s;
+}
+
+@keyframes subtleTilt {
+  from {
+    transform: rotate(0deg);
+  }
+
+  30% {
+    transform: rotate(30deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  70% {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.img-title-container {
+  display: flex;
+  gap: .5rem;
+  align-items: flex-end;
+}
+
+.edit-panel-img {
+  outline: 3px solid black;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .inputs-and-label {
   display: flex;
   flex-direction: column;
-
+  gap: .5rem;
   
 }
 
@@ -75,8 +129,23 @@
   width: 100%;
 }
 
+#file {
+  padding: 0;
+  display: none;
+}
+
+[for='file'] {
+  border: 2px solid black;
+  padding: 1rem;
+  cursor: pointer;
+}
+[for='file']:hover {
+  background-color: rgb(213, 213, 213);
+}
+
+
 .expandBtn {
-  
+  justify-self: flex-end;
   border: none;
   background-color: white;
   font-size: 2rem;
@@ -100,7 +169,9 @@
 }
 
 
-
+.toggle-animation {
+  animation: expand 1s ease-out .1s;
+}
 
 
 .visible {
@@ -143,6 +214,10 @@
   
 }
 
+.hobbies-unordered-list {
+  margin: 1rem 0;
+}
+
 .edit-delete-hobby-cont {
   margin-top: 1rem;
   display: flex;
@@ -176,25 +251,43 @@
 }
 
 .main {
-  background-color: rgb(238, 238, 238);
+  background-color: #BCC5CE;
+  background-image: url('./floating-cogs.svg');
   padding: 3rem 2rem;
-  margin-top: 1rem;
-  
-  
+  /*if icon background used*/
+  /* <a href="https://www.flaticon.com/free-icons/cv" title="CV icons">CV icons created by Freepik - Flaticon</a> */
+  /* <a href="https://www.flaticon.com/free-icons/job" title="job icons">Job icons created by surang - Flaticon</a> */
+  /* <a href="https://www.flaticon.com/free-icons/hard-hat" title="hard hat icons">Hard hat icons created by kerismaker - Flaticon</a> */
+  /* <a href="https://www.flaticon.com/free-icons/hired" title="hired icons">Hired icons created by Freepik - Flaticon</a> */
+}
+
+.configurations-img {
+  background-image: url('./floating-cogs.svg');
+}
+
+.interlaced-img {
+  background-image: url('./interlaced.png');
+}
+
+.tile-img {
+  background-image: url('./tile.PNG');
+}
+.gray-img {
+  background-image: none;
 }
 
 .document {
   background-color: white;
   margin: 0 auto;
   max-width: 1000px;
-  
+  box-shadow: 10px 10px 10px gray;
   
 }
 
 .document-file {
   display: grid;
   grid-template-columns: 5fr 2fr;
-  height: 1000px;
+  height: 1200px;
 }
 
 .document-main {
@@ -220,6 +313,11 @@
   gap: 1rem;
 }
 
+.document-icon-para {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
 .name {
   font-size: 3rem;
 }
@@ -245,6 +343,21 @@ h4 {
   border-bottom: 1px solid whitesmoke;
 }
 
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.image-wrapper img {
+  border-radius: 50%;
+  object-fit: cover;
+  
+  outline: 5px solid black;
+}
+
+
+
 .exp-list {
   list-style-type: none;
   padding: 0;
@@ -259,7 +372,12 @@ h4 {
   color: rgb(30, 141, 177);
 }
 
+
 .exp-title-date-container {
   display: flex;
   justify-content: space-between;
+}
+
+ul {
+  padding-left: 1rem;
 }

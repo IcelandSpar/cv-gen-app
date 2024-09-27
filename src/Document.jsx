@@ -1,5 +1,8 @@
+import contactIcon from './contact-icon.png';
+import emailIcon from './letter.png';
+import linkedinIcon from './linkedin.png';
 
-export function Document({userName, occupation, phone, email, linkedIn, location, summary, exp, hobbies}) {
+export function Document({userName, occupation, phone, email, linkedIn, location, summary, exp, hobbies, profilePic}) {
     return (
         <div className='document-file'>
             <div className='document-main'>
@@ -7,9 +10,20 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                     <h3 className='name'>{userName}</h3>
                     <h5 className="occupation">{occupation}</h5>
                     <div className='document-contact'>
-                        <p>{phone}</p>
-                        <p>{email}</p>
-                        <p>{linkedIn}</p>
+                        <div className="document-icon-para">
+                            <img src={contactIcon} alt="phone" width="25px" />
+                            <p>{phone}</p>
+                        </div>
+                        <div className="document-icon-para">
+                            <img src={emailIcon} alt="email" width='25px'/>
+                            {/* <a href="https://www.flaticon.com/free-icons/gray" title="gray icons">Gray icons created by Delwar018 - Flaticon</a> */}
+                            <p>{email}</p>
+                        </div>
+                        <div className="document-icon-para">
+                            <img src={linkedinIcon} alt="linked-in" width='25px'/>
+                            {/* <a href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons">Linkedin icons created by Freepik - Flaticon</a> */}
+                            <p>{linkedIn}</p>
+                        </div>
                     </div>
                     <p>{location}</p>
                 </section>
@@ -43,10 +57,13 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                     <li></li>
                     <li></li>
                 </ul>
-                <h4>Languages</h4>
             </div>
             <div className='document-aside'>
-                <div>profileImg</div>
+                <div className="image-wrapper">
+                    <img src={profilePic} alt="profile picture"  width='150px' height='150px' className='document-profile-pic'/>
+                    
+                </div>
+                {/* <a href="https://www.flaticon.com/free-icons/profile" title="profile icons">Profile icons created by Freepik - Flaticon</a> */}
                 <h4>Skills</h4>
                 <ul>
                     <li></li>
@@ -56,10 +73,11 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                     <li></li>
                 </ul>
                 <h4>Hobbies</h4>
-                <ul>
+                <ul className="hobbies-unordered-list">
                     {hobbies.map((hobby, i) => <li key={hobby + i}>{hobby}</li>)}
                     {document.querySelector('.hobbies-input') == null ? null : document.querySelector('.hobbies-input').value = ''}
                 </ul>
+                <h4>Languages</h4>
             </div>
         </div>
     )

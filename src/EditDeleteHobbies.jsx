@@ -35,7 +35,6 @@ export function EditDeleteHobbies({keyNum, hobbyValue, setHobbies, hobbies}) {
                     
                     document.querySelector('.visible-no-anim-input') == null ? setToggleHide(prev => !prev) : null;
 
-
                 }} className={!toggleHide == true ? 'hidden-no-anim' : 'visible-no-anim'}>Edit</button>
                 <button onClick={() => {
                     setHobbies(prev => prev.filter((currVal, index) => index !== keyNum))

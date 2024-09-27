@@ -1,5 +1,5 @@
 
-export function InputField({input, inputDefault, onChange, occupation}) {
+export function InputField({input, inputDefault, onChange, occupation, updateProfileImg}) {
 
     return (
         <div>
@@ -10,6 +10,13 @@ export function InputField({input, inputDefault, onChange, occupation}) {
             <div className="inputs-and-label">
                 <label htmlFor="occupation">Occupation: </label>
                 <input type="text" defaultValue={occupation} onChange={onChange} id={'occupation'}></input>
+            </div>
+            
+            <div className="inputs-and-label">
+                <label htmlFor="file">Change your image</label>
+                
+                <input type="file"  id='file' accept="image/png, image/jpeg" onChange={updateProfileImg}></input>
+                
             </div>
         </div>
     )

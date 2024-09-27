@@ -2,20 +2,27 @@ import { useState } from 'react';
 import { ContactInfoInput, InputField, SummaryInput, HobbiesInput } from './InputField';
 import { ResponsibilitiesSection } from './ResponsibilitiesSection';
 import { EditDeleteHobbies } from './EditDeleteHobbies';
+import contactIcon from './contact-icon.png';
+import summaryIcon from './summary-icon.svg';
+import hobbiesIcon from './hobbies.png';
+import workExpIcon from './work-exp-icon.svg';
 
-export function PanelSection({title, input, inputDefault, onChange, occupation}) {
-    const [expand, setExpand] = useState('+');
+export function PanelSection({title, input, inputDefault, onChange, occupation, updateProfileImg, profilePic}) {
+    const [expand, setExpand] = useState('-');
 
     const expandHandler = () => expand == '+' ? setExpand('-') : setExpand('+');
 
     return (
         <section className='panel-section-container'>
             <div  onClick={expandHandler} className='panel-section'>
-                <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                <div className="img-title-container">
+                    <img className='edit-panel-img' src={profilePic} alt="profile" width='30px' height='30px'/>
+                    <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                </div>
                 <button className='expandBtn' onClick={expandHandler}>{expand}</button>
             </div>
             <div className={expand == '+' ? 'hidden' : 'visible'}>
-            <InputField input={input} inputDefault={inputDefault} occupation={occupation} onChange={onChange}/>
+            <InputField input={input} inputDefault={inputDefault} occupation={occupation} onChange={onChange} updateProfileImg={updateProfileImg}/>
             </div>
         </section>
     )
@@ -27,7 +34,10 @@ export function ContactSection({title, phone, onChange, email, linkedIn, locatio
     const expandHandler = () => expand == '+' ? setExpand('-') : setExpand('+');
     return (    <section className='panel-section-container'>
     <div  onClick={expandHandler} className='panel-section'>
-        <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+        <div className="img-title-container">
+            <img src={contactIcon} alt="contact" width='30px' height='30px'/>
+            <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+        </div>
         <button className='expandBtn' onClick={expandHandler}>{expand}</button>
     </div>
     <div className={expand == '+' ? 'hidden' : 'visible'}>
@@ -44,7 +54,10 @@ export function SummarySection({title, summary, onChange}) {
     return (
         <section className='panel-section-container'>
             <div  onClick={expandHandler} className='panel-section'>
-                <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                <div className="img-title-container">
+                    <img src={summaryIcon} alt="summary" width='30px' height='30px'/>
+                    <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                </div>
                 <button className='expandBtn' onClick={expandHandler}>{expand}</button>
             </div>
             <div className={expand == '+' ? 'hidden' : 'visible'}>
@@ -64,7 +77,11 @@ export function ExperienceSection({title, expBtnHandle}) {
     return (
         <section className='panel-section-container'>
             <div  onClick={expandHandler} className='panel-section'>
-                <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                <div className="img-title-container">
+                    <img src={workExpIcon} alt="work history" width='30px' height='30px'/>
+                    {/* <a href="https://www.flaticon.com/free-icons/work-experience" title="work experience icons">Work experience icons created by Design Circle - Flaticon</a> */}
+                    <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                </div>
                 <button className='expandBtn' onClick={expandHandler}>{expand}</button>
             </div>
             <div className={expand == '+' ? 'hidden' : 'visible'}>
@@ -104,7 +121,11 @@ export function HobbySection({title, addHobbyHandle, hobbies, setHobbies}) {
     return (
         <section className='panel-section-container'>
             <div  onClick={expandHandler} className='panel-section'>
-                <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                <div className="img-title-container">
+                    <img src={hobbiesIcon} alt="hobbies icon" width='30px' height='30px'/>
+                        {/* <a href="https://www.flaticon.com/free-icons/hobbies" title="hobbies icons">Hobbies icons created by GOWI - Flaticon</a> */}
+                    <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                </div>
                 <button className='expandBtn' onClick={expandHandler}>{expand}</button>
             </div>
             <div className={expand == '+' ? 'hidden' : 'visible'}>
