@@ -68,3 +68,16 @@ export function HobbiesInput({addHobbyHandle}) {
         </div>
     )
 }
+
+export function AddInput({title, addBulletHandle}) {
+    return (
+        <div>
+        <div className='inputs-and-label'>
+            <label htmlFor={`${title.toLowerCase()}-input`}>{title}: </label>
+            <input type='text' id={`${title.toLowerCase()}-input`} className={`${title.toLowerCase()}-input`}/>
+            <button onClick={addBulletHandle}>Add {title}</button>
+            
+        </div>
+        </div>
+    )
+}

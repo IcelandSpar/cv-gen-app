@@ -1,8 +1,9 @@
 import contactIcon from './contact-icon.png';
 import emailIcon from './letter.png';
 import linkedinIcon from './linkedin.png';
+import locationIcon from './world.png';
 
-export function Document({userName, occupation, phone, email, linkedIn, location, summary, exp, hobbies, profilePic}) {
+export function Document({userName, occupation, phone, email, linkedIn, location, summary, exp, hobbies, profilePic, skills, languages}) {
     return (
         <div className='document-file'>
             <div className='document-main'>
@@ -25,7 +26,10 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                             <p>{linkedIn}</p>
                         </div>
                     </div>
-                    <p>{location}</p>
+                    <div className="document-icon-para">
+                        <img src={locationIcon} alt="location" width='25px'/>
+                        <p>{location}</p>
+                    </div>
                 </section>
                 <h4>Summary</h4>
                 <p className="summary">{summary}</p>
@@ -65,12 +69,9 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                 </div>
                 {/* <a href="https://www.flaticon.com/free-icons/profile" title="profile icons">Profile icons created by Freepik - Flaticon</a> */}
                 <h4>Skills</h4>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <ul className="hobbies-unordered-list">
+                {skills.map((skill, i) => <li key={skill + i}>{skill}</li>)}
+                {document.querySelector('.skills-input') == null ? null : document.querySelector('.skills-input').value = ''}
                 </ul>
                 <h4>Hobbies</h4>
                 <ul className="hobbies-unordered-list">
@@ -78,6 +79,10 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                     {document.querySelector('.hobbies-input') == null ? null : document.querySelector('.hobbies-input').value = ''}
                 </ul>
                 <h4>Languages</h4>
+                <ul className="hobbies-unordered-list">
+                {languages.map((language, i) => <li key={language + i}>{language}</li>)}
+                {document.querySelector('.languages-input') == null ? null : document.querySelector('.languages-input').value = ''}
+                </ul>
             </div>
         </div>
     )

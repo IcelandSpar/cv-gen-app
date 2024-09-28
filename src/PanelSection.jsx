@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { ContactInfoInput, InputField, SummaryInput, HobbiesInput } from './InputField';
+import { ContactInfoInput, InputField, SummaryInput, HobbiesInput, AddInput } from './InputField';
 import { ResponsibilitiesSection } from './ResponsibilitiesSection';
-import { EditDeleteHobbies } from './EditDeleteHobbies';
+import { EditDeleteBullets, EditDeleteHobbies } from './EditDeleteHobbies';
 import contactIcon from './contact-icon.png';
 import summaryIcon from './summary-icon.svg';
 import hobbiesIcon from './hobbies.png';
 import workExpIcon from './work-exp-icon.svg';
+
 
 export function PanelSection({title, input, inputDefault, onChange, occupation, updateProfileImg, profilePic}) {
     const [expand, setExpand] = useState('-');
@@ -133,6 +134,32 @@ export function HobbySection({title, addHobbyHandle, hobbies, setHobbies}) {
                 <ul className='hobbies-ul'>
                 {hobbies.map((hobby, i) => <EditDeleteHobbies key ={i} keyNum={i} hobbyValue={hobby} setHobbies={setHobbies} hobbies={hobbies}/>)}
                 </ul>
+            </div>
+        </section>
+    )
+}
+
+export function AddBulletPointPanel({title, iconSrc = summaryIcon, bullets, setBullets, addBulletHandle}) {
+    const [expand, setExpand] = useState('+');
+
+    const expandHandler = () => expand == '+' ? setExpand('-') : setExpand('+');
+
+    return (
+        <section className='panel-section-container'>
+            <div  onClick={expandHandler} className='panel-section'>
+                <div className="img-title-container">
+                    <img src={iconSrc} alt={`${title} icon`} width='30px' height='30px'/>
+                     
+                    <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                </div>
+                <button className='expandBtn' onClick={expandHandler}>{expand}</button>
+            </div>
+            <div className={expand == '+' ? 'hidden' : 'visible'}>
+                <AddInput title={title} addBulletHandle={addBulletHandle}/>
+                <ul className='hobbies-ul'>
+                    {bullets.map((bullet, i) =>  <EditDeleteBullets key={i} keyNum={i} bulletValue={bullet} setBullets={setBullets} bullets={bullets}/>)}
+                </ul>
+                
             </div>
         </section>
     )

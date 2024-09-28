@@ -20,6 +20,8 @@ function App() {
   const [summary, setSummary] = useState('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur fuga dolorum reprehenderit et deleniti quia molestias alias aliquid omnis distinctio. Impedit repellendus obcaecati temporibus dolore. Et reprehenderit sit expedita dolores.')
 
   const [hobbies, setHobbies] = useState(['Your hobbies go here!']);
+  const [skills, setSkills] = useState(['Your Skills go here!']);
+  const [languages, setLanguages] = useState(['Your Languages go here!']);
 
   const [exp, setExp] = useState([]);
 
@@ -36,9 +38,9 @@ function App() {
     document.querySelector('.document-profile-pic').classList.add('toggle-animation');
     document.querySelector('.edit-panel-img').classList.add('toggle-animation');
     setTimeout( () => {
-      document.querySelector('.document-profile-pic').classList.remove('.toggle-animation')
+      document.querySelector('.document-profile-pic').classList.remove('toggle-animation')
       document.querySelector('.edit-panel-img').classList.remove('toggle-animation')
-    }, 3000)
+    }, 5000)
   }
 
   
@@ -89,14 +91,25 @@ const addHobbyHandle = (e) => {
   
 }
 
+const addSkillHandle = (e) => {
+  const skillInput = document.getElementById('skills-input');
+  setSkills(prev => [...prev, skillInput.value]);
+  skillInput.focus();
 
+}
+
+const addLanguageHandle = (e) => {
+  const languagesInput = document.getElementById('languages-input');
+  setLanguages(prev => [...prev, languagesInput.value]);
+  languagesInput.focus();
+}
 
   return (
     <>
       <Header updateBackgroundImg={updateBackgroundImg}/>
       <div className="panel-and-main">
-        <EditPanel profilePic={profilePic} userName={name} onChange={handleChange} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} expBtnHandle={expBtnHandle} addHobbyHandle={addHobbyHandle} hobbies={hobbies} setHobbies={setHobbies} updateProfileImg={updateProfileImg}/>
-        <MainContent backgroundImg={backgroundImg} userName={name} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} exp={exp} hobbies={hobbies} profilePic={profilePic}/>
+        <EditPanel profilePic={profilePic} userName={name} onChange={handleChange} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} expBtnHandle={expBtnHandle} addHobbyHandle={addHobbyHandle} hobbies={hobbies} setHobbies={setHobbies} updateProfileImg={updateProfileImg} skills={skills} setSkills={setSkills} languages={languages} setLanguages={setLanguages} addSkillHandle={addSkillHandle} addLanguageHandle={addLanguageHandle}/>
+        <MainContent backgroundImg={backgroundImg} userName={name} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} exp={exp} hobbies={hobbies} profilePic={profilePic} skills={skills} languages={languages}/>
       </div>
     </>
   );
