@@ -69,7 +69,7 @@
 }
 
 .panel-section:hover img {
- animation: 1s subtleTilt ease-out .5s;
+ animation: 1s subtleTilt ease-out;
 }
 
 @keyframes subtleTilt {

@@ -139,7 +139,7 @@ export function HobbySection({title, addHobbyHandle, hobbies, setHobbies}) {
     )
 }
 
-export function AddBulletPointPanel({title, iconSrc = summaryIcon, bullets, setBullets, addBulletHandle}) {
+export function AddBulletPointPanel({title, bullets, setBullets, addBulletHandle, iconSrc}) {
     const [expand, setExpand] = useState('+');
 
     const expandHandler = () => expand == '+' ? setExpand('-') : setExpand('+');
@@ -149,6 +149,8 @@ export function AddBulletPointPanel({title, iconSrc = summaryIcon, bullets, setB
             <div  onClick={expandHandler} className='panel-section'>
                 <div className="img-title-container">
                     <img src={iconSrc} alt={`${title} icon`} width='30px' height='30px'/>
+                    {/* {<a href="https://www.flaticon.com/free-icons/translate" title="translate icons">Translate icons created by Atif Arshad - Flaticon</a>} */}
+                    {/* {<a href="https://www.flaticon.com/free-icons/capacity" title="capacity icons">Capacity icons created by Nuaba - Flaticon</a>} */}
                      
                     <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
                 </div>
@@ -159,6 +161,29 @@ export function AddBulletPointPanel({title, iconSrc = summaryIcon, bullets, setB
                 <ul className='hobbies-ul'>
                     {bullets.map((bullet, i) =>  <EditDeleteBullets key={i} keyNum={i} bulletValue={bullet} setBullets={setBullets} bullets={bullets}/>)}
                 </ul>
+                
+            </div>
+        </section>
+    )
+}
+
+export function EducationSection({srcIcon, title}) {
+    const [expand, setExpand] = useState('+');
+
+    const expandHandler = () => expand == '+' ? setExpand('-') : setExpand('+');
+
+    return (
+        <section className='panel-section-container'>
+            <div  onClick={expandHandler} className='panel-section'>
+                <div className="img-title-container">
+                    <img src={srcIcon} alt={title} width='30px' height='30px'/>
+                    {/* <a href="https://www.flaticon.com/free-icons/work-experience" title="work experience icons">Work experience icons created by Design Circle - Flaticon</a> */}
+                    <h2 className={expand == '+' ? null : 'selected-title'}>{title}</h2>
+                </div>
+                <button className='expandBtn' onClick={expandHandler}>{expand}</button>
+            </div>
+            <div className={expand == '+' ? 'hidden' : 'visible'}>
+
                 
             </div>
         </section>
