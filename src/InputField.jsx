@@ -74,7 +74,8 @@ export function AddInput({title, addBulletHandle}) {
         <div>
         <div className='inputs-and-label'>
             <label htmlFor={`${title.toLowerCase()}-input`}>{title}: </label>
-            <input type='text' id={`${title.toLowerCase()}-input`} className={`${title.toLowerCase()}-input`}/>
+            {title == 'Skills' ? <textarea type='text' id={`${title.toLowerCase()}-input`} className={`${title.toLowerCase()}-input`}/> : <input type='text' id={`${title.toLowerCase()}-input`} className={`${title.toLowerCase()}-input`}/>}
+            
             <button onClick={addBulletHandle}>Add {title}</button>
             
         </div>

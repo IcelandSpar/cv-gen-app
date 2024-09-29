@@ -39,13 +39,15 @@
 .panel-and-main {
   display: grid;
   grid-template-columns: minmax(400px, .5fr ) 5fr;
+  grid-template-rows: 1500px;
+  
 }
 
 .edit-panel {
   position: relative;
   padding: 1rem;
   overflow-y: scroll;
-  max-height: 1300px;
+  max-height: 100vh;
   scrollbar-width: thin;
 }
 
@@ -117,7 +119,7 @@
   margin-bottom: 1rem;
 }
 
-.resize-input {
+.resize-input, .skills-input {
   resize: vertical;
   
   font-size: 1rem;
@@ -257,6 +259,7 @@
   background-color: #BCC5CE;
   background-image: url('./floating-cogs.svg');
   padding: 3rem 2rem;
+  
   /*if icon background used*/
   /* <a href="https://www.flaticon.com/free-icons/cv" title="CV icons">CV icons created by Freepik - Flaticon</a> */
   /* <a href="https://www.flaticon.com/free-icons/job" title="job icons">Job icons created by surang - Flaticon</a> */
@@ -290,7 +293,8 @@
 .document-file {
   display: grid;
   grid-template-columns: 5fr 2fr;
-  height: 1200px;
+  grid-template-rows: 1300px;
+  
 }
 
 .document-main {
@@ -383,4 +387,8 @@ h4 {
 
 ul {
   padding-left: 1rem;
+}
+
+button {
+  cursor: pointer;
 }

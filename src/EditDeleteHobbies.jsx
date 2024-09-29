@@ -1,5 +1,8 @@
 
 import { useState } from 'react';
+import editIcon from './edit.svg';
+import deleteIcon from './delete.svg';
+import saveIcon from './save.svg';
 
 export function EditDeleteHobbies({keyNum, hobbyValue, setHobbies, hobbies}) {
 
@@ -28,7 +31,7 @@ export function EditDeleteHobbies({keyNum, hobbyValue, setHobbies, hobbies}) {
                         setToggleHide(prev => !prev)
 
 
-                    }}>Save</button>
+                    }}><img src={saveIcon} alt='save'></img></button>
             </div>
             
             <div className="edit-delete-btns" >
@@ -36,10 +39,10 @@ export function EditDeleteHobbies({keyNum, hobbyValue, setHobbies, hobbies}) {
                     
                     document.querySelector('.visible-no-anim-input') == null ? setToggleHide(prev => !prev) : null;
 
-                }} className={!toggleHide == true ? 'hidden-no-anim' : 'visible-no-anim'}>Edit</button>
+                }} className={!toggleHide == true ? 'hidden-no-anim' : 'visible-no-anim'}><img src={editIcon} alt='edit'></img></button>
                 <button onClick={() => {
                     setHobbies(prev => prev.filter((currVal, index) => index !== keyNum))
-                }} className={!toggleHide == true ? 'hidden-no-anim' : 'visible-no-anim'}>Delete</button>
+                }} className={!toggleHide == true ? 'hidden-no-anim' : 'visible-no-anim'}><img src={deleteIcon} alt='delete'></img></button>
             </div>
         </li>
     )
@@ -67,7 +70,7 @@ export function EditDeleteBullets({keyNum, bulletValue, setBullets, bullets}) {
                         setToggleHide(prev => !prev)
 
 
-                    }}>Save</button>
+                    }}><img src={saveIcon} alt='save'></img></button>
             </div>
             
             <div className="edit-delete-btns" >
@@ -75,10 +78,10 @@ export function EditDeleteBullets({keyNum, bulletValue, setBullets, bullets}) {
                     
                     document.querySelector('.visible-no-anim-input') == null ? setToggleHide(prev => !prev) : null;
 
-                }} className={!toggleHide == true ? 'hidden-no-anim' : 'visible-no-anim'}>Edit</button>
+                }} className={!toggleHide == true ? 'hidden-no-anim' : 'visible-no-anim'}><img src={editIcon} alt='edit'></img></button>
                 <button onClick={() => {
                     setBullets(prev => prev.filter((currVal, index) => index !== keyNum))
-                }} className={!toggleHide == true ? 'hidden-no-anim' : 'visible-no-anim'}>Delete</button>
+                }} className={!toggleHide == true ? 'hidden-no-anim' : 'visible-no-anim'}><img src={deleteIcon} alt='delete'></img></button>
             </div>
         </li>
     )
