@@ -3,7 +3,7 @@ import emailIcon from './letter.png';
 import linkedinIcon from './linkedin.png';
 import locationIcon from './world.png';
 
-export function Document({userName, occupation, phone, email, linkedIn, location, summary, exp, hobbies, profilePic, skills, languages}) {
+export function Document({userName, occupation, phone, email, linkedIn, location, summary, exp, hobbies, profilePic, skills, languages, education}) {
     return (
         <div className='document-file'>
             <div className='document-main'>
@@ -57,9 +57,19 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                     <li></li>
                 </div>
                 <h4>Education</h4>
-                <ul>
-                    <li></li>
-                    <li></li>
+                <ul className='document-school-list'>
+                    {education.map((edu, k) => (
+                        <li className='school-item' key={k}>
+                            <div className="school-title-date-container">
+                                <h5>{edu.title}</h5>
+                                <p>{edu.dateStart} - {edu.dateEnd}</p>
+                            </div>
+                            <div className='school-name-location-container'>
+                                <h6>{edu.schoolName}</h6>
+                                <p>{edu.location}</p>
+                            </div>
+                        </li>)
+                    )}
                 </ul>
             </div>
             <div className='document-aside'>

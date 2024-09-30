@@ -3,7 +3,7 @@ import languageIcon from './language.png';
 import skillsIcon from './skills.png';
 import graduateIcon from './graduate.png';
 
-export function EditPanel({userName, onChange, occupation, phone, email, linkedIn, location, summary, expBtnHandle, addHobbyHandle, hobbies, setHobbies, updateProfileImg, profilePic, skills, setSkills, languages, setLanguages, addSkillHandle, addLanguageHandle}) {
+export function EditPanel({userName, onChange, occupation, phone, email, linkedIn, location, summary, expBtnHandle, addHobbyHandle, hobbies, setHobbies, updateProfileImg, profilePic, skills, setSkills, languages, setLanguages, addSkillHandle, addLanguageHandle, education, setEducation}) {
     return (
         <aside className='edit-panel'>
             <h2>Edit your info!</h2>
@@ -11,7 +11,7 @@ export function EditPanel({userName, onChange, occupation, phone, email, linkedI
             <ContactSection title={'Contact Info'} phone={phone} onChange={onChange} email={email} linkedIn={linkedIn} location={location}/>
             <SummarySection title='Summary' summary={summary} onChange={onChange}/>
             <ExperienceSection title='Experience' expBtnHandle={expBtnHandle}/>
-            <EducationSection title='Education' srcIcon={graduateIcon}/>
+            <EducationSection title='Education' srcIcon={graduateIcon} education={education} setEducation={setEducation}/>
             {/* { Graduate Icon } */}
             {/* {<a href="https://www.flaticon.com/free-icons/hat" title="hat icons">Hat icons created by Freepik - Flaticon</a>} */}
             <AddBulletPointPanel title='Skills' bullets={skills} setBullets={setSkills} addBulletHandle={addSkillHandle} iconSrc={skillsIcon}/>

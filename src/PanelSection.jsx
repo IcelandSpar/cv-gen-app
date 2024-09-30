@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ContactInfoInput, InputField, SummaryInput, HobbiesInput, AddInput } from './InputField';
+import { ContactInfoInput, InputField, SummaryInput, HobbiesInput, AddInput, AddEducationInputs } from './InputField';
 import { ResponsibilitiesSection } from './ResponsibilitiesSection';
 import { EditDeleteBullets, EditDeleteHobbies } from './EditDeleteHobbies';
+import { EditDeleteEducation } from './EditDeleteEducation';
 import contactIcon from './contact-icon.png';
 import summaryIcon from './summary-icon.svg';
 import hobbiesIcon from './hobbies.png';
@@ -167,10 +168,18 @@ export function AddBulletPointPanel({title, bullets, setBullets, addBulletHandle
     )
 }
 
-export function EducationSection({srcIcon, title}) {
+export function EducationSection({srcIcon, title, education, setEducation}) {
     const [expand, setExpand] = useState('+');
 
     const expandHandler = () => expand == '+' ? setExpand('-') : setExpand('+');
+
+    const formatDate = (inputValue) => {
+        const year = inputValue.slice(0, 4);
+        const month = inputValue.slice(5, 7);
+        const day = inputValue.slice(8, 10);
+
+        return `${month}/${day}/${year}`
+}
 
     return (
         <section className='panel-section-container'>
@@ -183,8 +192,10 @@ export function EducationSection({srcIcon, title}) {
                 <button className='expandBtn' onClick={expandHandler}>{expand}</button>
             </div>
             <div className={expand == '+' ? 'hidden' : 'visible'}>
-
-                
+                <AddEducationInputs  education={education} setEducation={setEducation} formatDate={formatDate}/>
+                <ul className='hobbies-ul'>
+                    {education.map((edu, i) => <EditDeleteEducation keyNum={i} key={i} setEducation={setEducation} eduValue={edu} education={education} formatDate={formatDate}/>)}
+                </ul>
             </div>
         </section>
     )

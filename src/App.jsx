@@ -24,6 +24,13 @@ function App() {
   const [languages, setLanguages] = useState(['Your Languages go here!']);
 
   const [exp, setExp] = useState([]);
+  const [education, setEducation] = useState([{
+    title: 'Bachelor of Science in Computer Science',
+    schoolName: 'University of Washington',
+    dateStart: '09/01/2019',
+    dateEnd: '06/01/2023',
+    location: 'Seattle, WA'
+  }]);
 
   const updateBackgroundImg = (e) => {
     setBackgroundImg(e.target.value)
@@ -108,8 +115,8 @@ const addLanguageHandle = (e) => {
     <>
       <Header updateBackgroundImg={updateBackgroundImg}/>
       <div className="panel-and-main">
-        <EditPanel profilePic={profilePic} userName={name} onChange={handleChange} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} expBtnHandle={expBtnHandle} addHobbyHandle={addHobbyHandle} hobbies={hobbies} setHobbies={setHobbies} updateProfileImg={updateProfileImg} skills={skills} setSkills={setSkills} languages={languages} setLanguages={setLanguages} addSkillHandle={addSkillHandle} addLanguageHandle={addLanguageHandle}/>
-        <MainContent backgroundImg={backgroundImg} userName={name} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} exp={exp} hobbies={hobbies} profilePic={profilePic} skills={skills} languages={languages}/>
+        <EditPanel profilePic={profilePic} userName={name} onChange={handleChange} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} expBtnHandle={expBtnHandle} addHobbyHandle={addHobbyHandle} hobbies={hobbies} setHobbies={setHobbies} updateProfileImg={updateProfileImg} skills={skills} setSkills={setSkills} languages={languages} setLanguages={setLanguages} addSkillHandle={addSkillHandle} addLanguageHandle={addLanguageHandle} education={education} setEducation={setEducation}/>
+        <MainContent backgroundImg={backgroundImg} userName={name} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} exp={exp} hobbies={hobbies} profilePic={profilePic} skills={skills} languages={languages} education={education}/>
       </div>
     </>
   );

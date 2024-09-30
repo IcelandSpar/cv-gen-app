@@ -82,3 +82,56 @@ export function AddInput({title, addBulletHandle}) {
         </div>
     )
 }
+
+export function AddEducationInputs({education, setEducation, formatDate}) {
+
+    const setNewEducation = () => {
+
+
+
+    formatDate(document.querySelector('#school-date-start').value)
+
+        let newEducation = {
+            title: document.getElementById('education-title').value,
+            schoolName: document.getElementById('school-name').value,
+            dateStart: formatDate(document.getElementById('school-date-start').value),
+            dateEnd: formatDate(document.getElementById('school-date-end').value),
+            location: document.getElementById('school-location').value,
+          }
+
+          setEducation([...education, newEducation])
+          document.getElementById('education-title').value = '';
+          document.getElementById('school-name').value = '';
+          document.getElementById('school-date-start').value = '';
+          document.getElementById('school-date-end').value = '';
+          document.getElementById('school-location').value = '';
+
+    }
+
+    return (
+        <div>
+            <div className='inputs-and-label'>
+                <label htmlFor="education-title">Education Title: </label>
+                <input type="text" id="education-title"/>
+            </div>
+            <div className='inputs-and-label'>
+                <label htmlFor="school-name">School Name: </label>
+                <input type="text" id="school-name"/>
+            </div>
+            <div className='inputs-and-label'>
+                <label htmlFor="school-location">School Location: </label>
+                <input type="text" id='school-location'/>
+            </div>
+            <div className='inputs-and-label'>
+                <label htmlFor="school-date-start">Date Start: </label>
+                <input type="date" id='school-date-start'/>
+            </div>
+            <div className='inputs-and-label'>
+                <label htmlFor="school-date-end">Date End: </label>
+                <input type="date" id='school-date-end'/>
+                <button onClick={setNewEducation}>Add School</button>
+            </div>
+            
+        </div>
+    )
+}

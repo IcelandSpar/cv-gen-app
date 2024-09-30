@@ -47,7 +47,7 @@
   position: relative;
   padding: 1rem;
   overflow-y: scroll;
-  max-height: 100vh;
+  max-height: 1500px;
   scrollbar-width: thin;
 }
 
@@ -391,4 +391,38 @@ ul {
 
 button {
   cursor: pointer;
+}
+
+.document-school-list {
+  list-style-type: none;
+  padding: 0;
+
+}
+
+.school-item {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  margin-bottom: 1rem;
+}
+
+
+.school-title-date-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.school-title-date-container h5 {
+  
+  font-size: 1.1rem;
+}
+
+.school-name-location-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.school-name-location-container h6 {
+  color: #2ea1ff;
+  font-size: 1rem;
 }
