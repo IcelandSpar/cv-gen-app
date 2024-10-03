@@ -69,10 +69,39 @@ export function SummarySection({title, summary, onChange}) {
     )
 }
 
-export function ExperienceSection({title, expBtnHandle}) {
+export function ExperienceSection({title, setExp, exp}) {
     const [expand, setExpand] = useState('+');
+    const [respons, setRespons] = useState(['Your Responsibilities...'])
 
     const expandHandler = () => expand == '+' ? setExpand('-') : setExpand('+');
+
+    const formatDate = (inputValue) => {
+        const year = inputValue.slice(0, 4);
+        const month = inputValue.slice(5, 7);
+        const day = inputValue.slice(8, 10);
+
+        return `${month}/${day}/${year}`
+}
+
+
+
+
+    const expBtnHandle = (e) => {
+        e.preventDefault()
+        
+    
+        
+        setExp([...exp, {
+          
+          position: document.querySelector('.position-input').value,
+          company: document.querySelector('.company-input').value,
+          dateStart: formatDate(document.querySelector('.date-start-input').value),
+          dateEnd: formatDate(document.querySelector('.date-end-input').value),
+          respons: respons
+        }])
+        setRespons([])
+        
+    }
 
 
 
@@ -107,9 +136,11 @@ export function ExperienceSection({title, expBtnHandle}) {
                     <label>Date End: </label>
                     <input type="date" className='date-end-input'/>
                 </div>
-                <ResponsibilitiesSection/>
+                <ResponsibilitiesSection respons={respons} setRespons={setRespons}/>
                 <button onClick={expBtnHandle}>Add Work</button>
-                
+                <ul>
+                    {exp.map((obj, index) => <li key={index}>{obj.position}</li>)}
+                </ul>
             </div>
         </section>
     )

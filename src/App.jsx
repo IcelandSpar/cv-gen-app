@@ -71,22 +71,7 @@ function App() {
     
   };
 
-  const expBtnHandle = (e) => {
-    e.preventDefault()
-    
 
-    
-    setExp([...exp, {
-      
-      position: document.querySelector('.position-input').value,
-      company: document.querySelector('.company-input').value,
-      dateStart: document.querySelector('.date-start-input').value,
-      dateEnd: document.querySelector('.date-end-input').value,
-      respons: Array.from(document.querySelectorAll('.respons-input'))
-    }])
-    
-    
-}
 
 const addHobbyHandle = (e) => {
   const hobbyInput = document.getElementById('hobbies');
@@ -115,7 +100,7 @@ const addLanguageHandle = (e) => {
     <>
       <Header updateBackgroundImg={updateBackgroundImg}/>
       <div className="panel-and-main">
-        <EditPanel profilePic={profilePic} userName={name} onChange={handleChange} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} expBtnHandle={expBtnHandle} addHobbyHandle={addHobbyHandle} hobbies={hobbies} setHobbies={setHobbies} updateProfileImg={updateProfileImg} skills={skills} setSkills={setSkills} languages={languages} setLanguages={setLanguages} addSkillHandle={addSkillHandle} addLanguageHandle={addLanguageHandle} education={education} setEducation={setEducation}/>
+        <EditPanel profilePic={profilePic} userName={name} onChange={handleChange} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} addHobbyHandle={addHobbyHandle} hobbies={hobbies} setHobbies={setHobbies} updateProfileImg={updateProfileImg} skills={skills} setSkills={setSkills} languages={languages} setLanguages={setLanguages} addSkillHandle={addSkillHandle} addLanguageHandle={addLanguageHandle} education={education} setEducation={setEducation} setExp={setExp} exp={exp}/>
         <MainContent backgroundImg={backgroundImg} userName={name} occupation={occupation} phone={phone} email={email} linkedIn={linkedIn} location={location} summary={summary} exp={exp} hobbies={hobbies} profilePic={profilePic} skills={skills} languages={languages} education={education}/>
       </div>
     </>

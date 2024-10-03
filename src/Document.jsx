@@ -46,15 +46,13 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                                 </div>
                                 <h6 className='exp-company'>{item.company}</h6>
                                 <ul>
-                                    {item.respons.map((resp, j) => <li key={i + j}>{resp.value}</li>)}
+                                    {item.respons.map((resp, j) => <li key={i + j}>{resp}</li>)}
                                 </ul>
                             </li>
                             )
 
                         })}
                     </ul>
-                    <li></li>
-                    <li></li>
                 </div>
                 <h4>Education</h4>
                 <ul className='document-school-list'>
