@@ -39,7 +39,7 @@ export function Document({userName, occupation, phone, email, linkedIn, location
                     <ul className="exp-list">{
                         exp.map((item, i) => {
                             return (
-                            <li key={i}>
+                            <li key={i} className='individual-exp'>
                                 <div className="exp-title-date-container">
                                     <h5 className="exp-position">{item.position}</h5>
                                     <div>{item.dateStart} - {item.dateEnd}</div>

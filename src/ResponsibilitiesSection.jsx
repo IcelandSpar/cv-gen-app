@@ -30,7 +30,7 @@ export function ResponsibilitiesSection({respons, setRespons}) {
     <>
         <div className="inputs-and-label" style={{borderBottom: '1px solid black', padding: '0 0 1rem 0'}}>
             <label htmlFor="add-respons-input">Responsibility: </label>
-            <input type="text" id='add-respons-input'/>
+            <textarea type="text" id='add-respons-input'/>
             
             <button onClick={addResponsHandler}>Add Responsibility</button>
         </div>

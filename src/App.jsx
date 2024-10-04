@@ -23,7 +23,17 @@ function App() {
   const [skills, setSkills] = useState(['Your Skills go here!']);
   const [languages, setLanguages] = useState(['Your Languages go here!']);
 
-  const [exp, setExp] = useState([]);
+  const [exp, setExp] = useState([
+    {
+          
+      position: 'Your Position goes here!',
+      company: 'Company Name',
+      dateStart: '2019-09-01',
+      dateEnd: '2019-09-01',
+      respons: ['responsibility 1', 'responsibility 2']
+    }
+  ]);
+
   const [education, setEducation] = useState([{
     title: 'Bachelor of Science in Computer Science',
     schoolName: 'University of Washington',

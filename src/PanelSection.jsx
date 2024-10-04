@@ -7,6 +7,7 @@ import contactIcon from './contact-icon.png';
 import summaryIcon from './summary-icon.svg';
 import hobbiesIcon from './hobbies.png';
 import workExpIcon from './work-exp-icon.svg';
+import deleteIcon from './delete.svg';
 
 
 export function PanelSection({title, input, inputDefault, onChange, occupation, updateProfileImg, profilePic}) {
@@ -100,6 +101,11 @@ export function ExperienceSection({title, setExp, exp}) {
           respons: respons
         }])
         setRespons([])
+        document.querySelector('.position-input').value = '';
+        document.querySelector('.company-input').value = '';
+        document.querySelector('.date-start-input').value = '';
+        document.querySelector('.date-end-input').value = '';
+        document.querySelector('#add-respons-input').value = '';
         
     }
 
@@ -138,8 +144,16 @@ export function ExperienceSection({title, setExp, exp}) {
                 </div>
                 <ResponsibilitiesSection respons={respons} setRespons={setRespons}/>
                 <button onClick={expBtnHandle}>Add Work</button>
-                <ul>
-                    {exp.map((obj, index) => <li key={index}>{obj.position}</li>)}
+                <h4 style={{marginTop: '1rem'}}>Your Work History: </h4>
+                <ul style={{display: 'flex', flexDirection: 'column', gap: '1rem', margin: '1rem 0', paddingLeft: '0'}}>
+                    {exp.map((obj, index) => (
+                        <li key={index} style={{display: 'flex', justifyContent: 'space-between'}}>
+                            <p>{obj.position}</p>
+                            <button onClick={() => {
+                                setExp(prev => prev.filter((currVal, ind) => index != ind))
+                            }}><img src={deleteIcon} alt="deleteIcon" /></button>
+                        </li>
+                        ))}
                 </ul>
             </div>
         </section>
@@ -224,6 +238,7 @@ export function EducationSection({srcIcon, title, education, setEducation}) {
             </div>
             <div className={expand == '+' ? 'hidden' : 'visible'}>
                 <AddEducationInputs  education={education} setEducation={setEducation} formatDate={formatDate}/>
+                
                 <ul className='hobbies-ul'>
                     {education.map((edu, i) => <EditDeleteEducation keyNum={i} key={i} setEducation={setEducation} eduValue={edu} education={education} formatDate={formatDate}/>)}
                 </ul>
